@@ -1,0 +1,81 @@
+	
+	
+	<legend ng-show="displayMode == 'list'" >Add new User</legend>
+	<legend ng-show="displayMode == 'edit'" >Update User</legend>
+	<div class="row" >
+		<div class="col-md-12">
+			<panel panel-class="panel-primary">
+				<div class="panel-body">
+				   <div class="col-xs-6">
+						<label>First Name :</label> 
+						<input class="form-control"ng-model="personCourant.firstName"/>
+					</div>
+					
+					<div class="col-xs-6">
+						<label>Last Name :</label> 
+						<input class="form-control" ng-model="personCourant.lastName" />
+					</div>
+
+				   	<div class="col-xs-6">
+						<label>Email :</label> 
+						<input class="form-control"ng-model="personCourant.email" />
+					</div>
+					
+					<div class="col-xs-6">
+						<label>Telephone :</label> 
+						<input class="form-control" ng-model="personCourant.telephone" />
+					</div>
+
+					<div class="col-xs-12">
+						<label>Adresse :</label> 
+						<input class="form-control" ng-model="personCourant.adresse" />
+					</div>
+
+					<div class="col-md-10"></div>
+					<div class="col-md-2" style="margin: 2% 0 0 0;">
+						<div class="btn-toolbar">
+							<button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+							<button class="btn btn-primary" ng-click="updatePerson(personCourant)" ng-show="displayMode == 'edit'">
+								<snan>Update</span>
+							</button>
+							<button class="btn btn-primary" ng-click="createPerson(personCourant)" ng-show="displayMode == 'list'">
+								<snan>Add</span>
+							</button>
+							
+						</div>
+					</div>
+				
+				</div>
+
+			</panel>
+
+		</div>
+	</div>
+
+
+	<legend>Users List</legend>
+
+	<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+			<td><strong>First Name</strong></td>
+			<td><strong>Last Name</strong></td>
+			<td><strong>Adresse</strong></td>
+			<td><strong>Email</strong></td>
+			<td><strong>Telephone</strong></td>
+			
+		</tr>
+		</thead>
+		<tr ng-repeat="personne in personnes">
+			<td>{{personne.firstName}} </td>
+			<td>{{ personne.lastName }}</td>
+			<td>{{ personne.adresse }}</td>
+			<td>{{ personne.email }}</td>
+			<td>{{ personne.telephone }}</td>
+			<td>
+				<button data-nodrag class="btn btn-default btn-xs" ng-click="getPersonne(personne.id)">	<i class="fa fa-fw fa-pencil"></i></button>
+				<button data-nodrag class="btn btn-default btn-xs"	ng-click="deletePerson(personne.id)">	<i class="fa fa-fw fa-trash-o"></i></button>
+			</td>
+
+		</tr>
+	</table>
